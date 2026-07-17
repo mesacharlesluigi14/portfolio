@@ -64,7 +64,7 @@ export default function ContactForm() {
           <input
             name="name"
             required
-            className="rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3 text-white outline-none transition placeholder:text-white/30 focus:border-cyan-200/60"
+            className="rounded-2xl border border-white/20 bg-white/8 px-4 py-3 text-white outline-none transition placeholder:text-white/40 focus:border-lime-200"
             placeholder="Your name"
           />
         </label>
@@ -74,7 +74,7 @@ export default function ContactForm() {
             type="email"
             name="email"
             required
-            className="rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3 text-white outline-none transition placeholder:text-white/30 focus:border-cyan-200/60"
+            className="rounded-2xl border border-white/20 bg-white/8 px-4 py-3 text-white outline-none transition placeholder:text-white/40 focus:border-lime-200"
             placeholder="you@example.com"
           />
         </label>
@@ -85,7 +85,7 @@ export default function ContactForm() {
         <input
           name="subject"
           required
-          className="rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3 text-white outline-none transition placeholder:text-white/30 focus:border-cyan-200/60"
+          className="rounded-2xl border border-white/20 bg-white/8 px-4 py-3 text-white outline-none transition placeholder:text-white/40 focus:border-lime-200"
           placeholder="Project inquiry or opportunity"
         />
       </label>
@@ -96,7 +96,7 @@ export default function ContactForm() {
           name="message"
           required
           rows={6}
-          className="rounded-3xl border border-white/10 bg-slate-950/40 px-4 py-3 text-white outline-none transition placeholder:text-white/30 focus:border-cyan-200/60"
+          className="rounded-3xl border border-white/20 bg-white/8 px-4 py-3 text-white outline-none transition placeholder:text-white/40 focus:border-lime-200"
           placeholder="Tell me what you want to build or discuss."
         />
       </label>
@@ -105,11 +105,11 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={state === "sending"}
-          className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-60"
+          className="rounded-full bg-lime-200 px-6 py-3 text-sm font-semibold text-emerald-950 transition hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-60"
         >
           {state === "sending" ? "Sending..." : "Send message"}
         </button>
-        <p className={`text-sm ${state === "error" ? "text-rose-200" : "text-emerald-100"}`}>{message}</p>
+        <p className={`text-sm ${state === "error" ? "text-rose-200" : "text-lime-100"}`}>{message}</p>
       </div>
     </form>
   );

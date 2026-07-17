@@ -15,7 +15,7 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   title: "Charles Luigi Mesa | Portfolio",
   description:
-    "A polished portfolio showcasing Charles Luigi Mesa's full-stack, database, and AI projects for Vercel deployment.",
+    "Charles Luigi Mesa — a full-stack developer focused on database systems, AI-assisted products, and polished digital experiences.",
 };
 
 export default function RootLayout({
