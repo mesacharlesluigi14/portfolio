@@ -11,6 +11,8 @@ const projects = [
     result: "100+ applicants guided with accurate career support and opportunity matching.",
     stack: ["Laravel", "Flutter", "PostgreSQL", "AI assistance"],
     href: "https://github.com/mesacharlesluigi14/domesticare",
+    videoUrl: "https://www.youtube.com/watch?v=aQeh59AXEkA&t=5s",
+    videoId: "aQeh59AXEkA",
   },
   {
     number: "02",
@@ -20,14 +22,17 @@ const projects = [
       "A dynamic Laravel storefront with transaction processing, reporting analytics, API connections, and category-led product discovery.",
     result: "Built to support 100+ daily orders and improve sales conversion by 35%.",
     stack: ["Laravel", "MySQL", "REST APIs", "Analytics"],
-    href: "https://github.com/CharlesLuigiMesa14/hound",
+    href: "https://github.com/mesacharlesluigi14/hound",
+    liveUrl: "https://hound-production-1928.up.railway.app",
+    videoUrl: "https://www.youtube.com/watch?v=jjRGxXOtb3Y",
+    videoId: "jjRGxXOtb3Y",
   },
   {
     number: "03",
     name: "Dental Flow",
     eyebrow: "Clinical database system",
     description:
-      "An Oracle-based appointment management system for Igliane’s Dental Clinic, created to protect records and streamline scheduling.",
+      "An Oracle-based appointment management system for Igliane's Dental Clinic, created to protect records and streamline scheduling.",
     result: "Migrated 80%+ of paper appointment data into a secure digital workflow.",
     stack: ["Oracle", "Database design", "Scheduling", "Data integrity"],
     href: "mailto:mesacharlesluigi@gmail.com?subject=Dental%20Flow%20case%20study",
@@ -35,13 +40,41 @@ const projects = [
 ];
 
 const credentials = [
-  "Oracle Data Platform 2025 Certified Foundations Associate",
-  "Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate",
-  "Oracle Cloud Infrastructure 2025 Certified Foundations Associate",
-  "Oracle Cloud Infrastructure 2025 Generative AI Professional",
-  "Oracle APEX Cloud Developer Certified Professional 2025",
-  "Oracle Cloud Database Services 2025 Professional",
-  "SAP Certified Associate – Project Manager – SAP Activate",
+  {
+    name: "Oracle Data Platform 2025 Certified Foundations Associate",
+    image: "/certificates/oracle-data-platform.jpg",
+    issuer: "Oracle",
+  },
+  {
+    name: "Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate",
+    image: "/certificates/oci-ai-foundations.jpg",
+    issuer: "Oracle",
+  },
+  {
+    name: "Oracle Cloud Infrastructure 2025 Certified Foundations Associate",
+    image: "/certificates/oci-foundations.jpg",
+    issuer: "Oracle",
+  },
+  {
+    name: "Oracle Cloud Infrastructure 2025 Generative AI Professional",
+    image: "/certificates/oci-genai-professional.jpg",
+    issuer: "Oracle",
+  },
+  {
+    name: "Oracle APEX Cloud Developer Certified Professional 2025",
+    image: "/certificates/apex-developer.jpg",
+    issuer: "Oracle",
+  },
+  {
+    name: "Oracle Cloud Database Services 2025 Professional",
+    image: "/certificates/cloud-database-services.jpg",
+    issuer: "Oracle",
+  },
+  {
+    name: "SAP Certified Associate – Project Manager – SAP Activate",
+    image: "/certificates/sap-activate.jpg",
+    issuer: "SAP",
+  },
 ];
 
 const skills = [
@@ -133,10 +166,35 @@ export default function Home() {
                 <p className="project-description">{project.description}</p>
                 <p className="project-result">{project.result}</p>
                 <div className="tag-list">{project.stack.map((item) => <span key={item}>{item}</span>)}</div>
+                <div className="project-actions">
+                  {"liveUrl" in project && project.liveUrl && (
+                    <a className="project-link project-link-live" href={project.liveUrl} target="_blank" rel="noreferrer">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                      Live Site <span>↗</span>
+                    </a>
+                  )}
+                  <a className="project-link" href={project.href} target={project.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    GitHub <span>↗</span>
+                  </a>
+                  {"videoUrl" in project && project.videoUrl && (
+                    <a className="project-link project-link-video" href={project.videoUrl} target="_blank" rel="noreferrer">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                      Video Demo <span>↗</span>
+                    </a>
+                  )}
+                </div>
+                {"videoId" in project && project.videoId && (
+                  <div className="project-video-embed">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${project.videoId}?rel=0`}
+                      title={`${project.name} Demo Video`}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                )}
               </div>
-              <a className="project-link" href={project.href} target={project.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">
-                View project <span>↗</span>
-              </a>
             </article>
           ))}
         </div>
@@ -173,14 +231,31 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="credentials-section">
+      <section className="credentials-section" id="credentials">
         <div>
           <p className="section-kicker"><span /> Credentials</p>
           <h2>Learning with<br /><em>intention.</em></h2>
         </div>
-        <ol>
-          {credentials.map((credential, index) => <li key={credential}><span>0{index + 1}</span>{credential}</li>)}
-        </ol>
+        <div className="credential-grid">
+          {credentials.map((credential, index) => (
+            <div className="credential-card" key={credential.name}>
+              <div className="credential-number">0{index + 1}</div>
+              <div className="credential-image-wrap">
+                <Image
+                  src={credential.image}
+                  alt={credential.name}
+                  width={800}
+                  height={600}
+                  className="credential-image"
+                />
+                <div className="credential-overlay">
+                  <span className="credential-badge">{credential.issuer}</span>
+                </div>
+              </div>
+              <p className="credential-name">{credential.name}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className="contact-section" id="contact">
