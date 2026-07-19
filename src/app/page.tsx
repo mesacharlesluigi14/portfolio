@@ -29,6 +29,16 @@ const projects = [
     videoId: "jjRGxXOtb3Y",
   },
   {
+    name: "Sorbee",
+    eyebrow: "Frozen dessert web shop",
+    description:
+      "A full-stack PHP web application for a frozen dessert shop in Marikina with role-based access, shopping cart flow, and admin dashboards.",
+    impact: "Updated online ordering and operations across multiple store locations with secure access and order tracking.",
+    stack: ["PHP", "MySQL", "Bootstrap", "JavaScript"],
+    href: "https://github.com/mesacharlesluigi14/Sorbee",
+    liveUrl: "https://sorbee.vercel.app",
+  },
+  {
     name: "Blender Portfolio",
     eyebrow: "3D visual storytelling",
     description:
