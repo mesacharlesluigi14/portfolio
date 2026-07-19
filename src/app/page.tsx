@@ -135,10 +135,10 @@ export default function Home() {
           <p className="hero-intro">
             I build products that feel natural to use — from web platforms and admin systems to creative visual experiences rooted in good architecture and strong communication.
           </p>
-          <div className="hero-badges">
-            <span>Magna Cum Laude</span>
-            <span>Valedictorian</span>
-            <span>Highest GPA Overall</span>
+          <div className="hero-text-row">
+            <p className="hero-highlight">Magna Cum Laude</p>
+            <p className="hero-highlight">Valedictorian</p>
+            <p className="hero-highlight">Highest GPA Overall</p>
           </div>
           <div className="hero-actions">
             <a className="button button-primary" href="#work">Explore the work <span>↓</span></a>
@@ -171,14 +171,17 @@ export default function Home() {
 
       <section className="feature-band reveal" aria-label="Highlights">
         <article>
+          <div className="feature-icon">▹</div>
           <strong>Full stack</strong>
           <p>Web and mobile experiences designed to feel polished and dependable.</p>
         </article>
         <article>
+          <div className="feature-icon">▹</div>
           <strong>Database thinking</strong>
           <p>Clearer systems, cleaner workflows, and stronger long-term maintainability.</p>
         </article>
         <article>
+          <div className="feature-icon">▹</div>
           <strong>Creative direction</strong>
           <p>Blender, visual storytelling, and thoughtful presentation as part of the product.</p>
         </article>
