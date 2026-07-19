@@ -1,0 +1,16 @@
+{
+  "name": "Charles Luigi Mesa — Portfolio",
+  "short_name": "CLM Portfolio",
+  "description": "Full-stack developer building reliable software that people actually use.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#faf9f5",
+  "theme_color": "#0f1712",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}

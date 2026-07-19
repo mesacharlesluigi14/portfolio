@@ -1,26 +1,27 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect } from "react";
 import ContactForm from "./contact-form";
 
 const projects = [
   {
-    number: "01",
     name: "DomestiCare",
     eyebrow: "Mobile + web career platform",
     description:
-      "A job recommender with associated training programs and chatbot assistance designed to help overseas Filipino workers navigate opportunities with confidence.",
-    result: "100+ applicants guided with accurate career support and opportunity matching.",
+      "A job recommender and learning companion for overseas Filipino workers seeking clearer guidance and better opportunities.",
+    impact: "Supported 100+ applicants with a more trusted path to career matching.",
     stack: ["Laravel", "Flutter", "PostgreSQL", "AI assistance"],
     href: "https://github.com/mesacharlesluigi14/domesticare",
     videoUrl: "https://www.youtube.com/watch?v=aQeh59AXEkA&t=5s",
     videoId: "aQeh59AXEkA",
   },
   {
-    number: "02",
     name: "Hound",
     eyebrow: "E-commerce for Hound Jewelry Shop",
     description:
-      "A dynamic Laravel storefront with transaction processing, reporting analytics, API connections, and category-led product discovery.",
-    result: "Built to support 100+ daily orders and improve sales conversion by 35%.",
+      "A polished storefront built to make online shopping feel effortless from discovery to checkout.",
+    impact: "Created a more scalable sales experience for daily transactions and stronger product visibility.",
     stack: ["Laravel", "MySQL", "REST APIs", "Analytics"],
     href: "https://github.com/mesacharlesluigi14/hound",
     liveUrl: "https://hound-production-1928.up.railway.app",
@@ -28,14 +29,13 @@ const projects = [
     videoId: "jjRGxXOtb3Y",
   },
   {
-    number: "03",
-    name: "Dental Flow",
-    eyebrow: "Clinical database system",
+    name: "Blender Portfolio",
+    eyebrow: "3D visual storytelling",
     description:
-      "An Oracle-based appointment management system for Igliane's Dental Clinic, created to protect records and streamline scheduling.",
-    result: "Migrated 80%+ of paper appointment data into a secure digital workflow.",
-    stack: ["Oracle", "Database design", "Scheduling", "Data integrity"],
-    href: "mailto:mesacharlesluigi@gmail.com?subject=Dental%20Flow%20case%20study",
+      "A creative Blender showcase that blends storytelling, lighting, and presentation into a striking visual portfolio.",
+    impact: "Built as a personal space for motion, form, and visual identity beyond traditional web interfaces.",
+    stack: ["Blender 3D", "Modeling", "Lighting", "Cinematics"],
+    href: "mailto:mesacharlesluigi@gmail.com?subject=Blender%20Portfolio",
   },
 ];
 
@@ -84,6 +84,29 @@ const skills = [
 ];
 
 export default function Home() {
+  useEffect(() => {
+    const elements = Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
+
+    if (!elements.length) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 },
+    );
+
+    elements.forEach((element) => observer.observe(element));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <main>
       <div className="site-noise" aria-hidden="true" />
@@ -103,17 +126,20 @@ export default function Home() {
       </header>
 
       <section className="hero" id="top">
-        <div className="hero-copy">
+        <div className="hero-copy reveal">
           <p className="section-kicker"><span /> Charles Luigi Mesa — full-stack builder</p>
           <h1>
-            Growing ideas into
-            <em> dependable digital</em>
-            experiences.
+            Designing thoughtful digital experiences with
+            <em> calm, clarity, and craft.</em>
           </h1>
           <p className="hero-intro">
-            A Magna Cum Laude BSIT graduate from T.I.P. Quezon City, combining full-stack craft,
-            database thinking, and AI curiosity to make useful products feel effortless.
+            I build products that feel natural to use — from web platforms and admin systems to creative visual experiences rooted in good architecture and strong communication.
           </p>
+          <div className="hero-badges">
+            <span>Magna Cum Laude</span>
+            <span>Valedictorian</span>
+            <span>Highest GPA Overall</span>
+          </div>
           <div className="hero-actions">
             <a className="button button-primary" href="#work">Explore the work <span>↓</span></a>
             <a className="button button-quiet" href="mailto:mesacharlesluigi@gmail.com">Start a conversation <span>↗</span></a>
@@ -124,7 +150,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="portrait-stage">
+        <div className="portrait-stage reveal">
           <div className="portrait-orbit orbit-one" aria-hidden="true" />
           <div className="portrait-orbit orbit-two" aria-hidden="true" />
           <div className="portrait-label label-top">available for<br />great work</div>
@@ -143,28 +169,35 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="metrics" aria-label="Career highlights">
-        <div><strong>500</strong><span>hours in SAP FICO<br />Academy training</span></div>
-        <div><strong>7</strong><span>industry certifications<br />across Oracle &amp; SAP</span></div>
-        <div><strong>100+</strong><span>applicants supported<br />through DomestiCare</span></div>
-        <div><strong>35%</strong><span>sales conversion lift<br />targeted by Hound</span></div>
+      <section className="feature-band reveal" aria-label="Highlights">
+        <article>
+          <strong>Full stack</strong>
+          <p>Web and mobile experiences designed to feel polished and dependable.</p>
+        </article>
+        <article>
+          <strong>Database thinking</strong>
+          <p>Clearer systems, cleaner workflows, and stronger long-term maintainability.</p>
+        </article>
+        <article>
+          <strong>Creative direction</strong>
+          <p>Blender, visual storytelling, and thoughtful presentation as part of the product.</p>
+        </article>
       </section>
 
       <section className="work-section" id="work">
-        <div className="section-heading">
+        <div className="section-heading reveal">
           <p className="section-kicker"><span /> Selected work</p>
-          <h2>Built with care.<br /><em>Measured by impact.</em></h2>
-          <p>From a recommendation engine for global careers to commerce and clinical systems, each project starts with the people who need it.</p>
+          <h2>Built with care.<br /><em>Made to feel effortless.</em></h2>
+          <p>Each project is shaped by a practical goal: clarity, useful outcomes, and a strong experience from first click to final handoff.</p>
         </div>
         <div className="project-list">
-          {projects.map((project) => (
-            <article className="project-card" key={project.name}>
-              <div className="project-number">{project.number}</div>
+          {projects.map((project, index) => (
+            <article className="project-card reveal" key={project.name} style={{ transitionDelay: `${index * 120}ms` }}>
               <div className="project-main">
                 <p className="project-eyebrow">{project.eyebrow}</p>
                 <h3>{project.name}</h3>
                 <p className="project-description">{project.description}</p>
-                <p className="project-result">{project.result}</p>
+                <p className="project-result">{project.impact}</p>
                 <div className="tag-list">{project.stack.map((item) => <span key={item}>{item}</span>)}</div>
                 <div className="project-actions">
                   {"liveUrl" in project && project.liveUrl && (
@@ -175,7 +208,7 @@ export default function Home() {
                   )}
                   <a className="project-link" href={project.href} target={project.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                    GitHub <span>↗</span>
+                    View details <span>↗</span>
                   </a>
                   {"videoUrl" in project && project.videoUrl && (
                     <a className="project-link project-link-video" href={project.videoUrl} target="_blank" rel="noreferrer">
@@ -201,15 +234,15 @@ export default function Home() {
       </section>
 
       <section className="about-section" id="about">
-        <div className="about-intro">
+        <div className="about-intro reveal">
           <p className="section-kicker"><span /> The person behind the build</p>
           <h2>I bring an <em>outcome-first</em> mindset to every screen, query, and system.</h2>
         </div>
         <div className="about-grid">
-          <p className="about-copy">
+          <p className="about-copy reveal">
             I&apos;m Charles, a creative and responsible problem-solver who enjoys translating complex requirements into clear, useful technology. My work is shaped by strong communication, ethical practice, and the habit of learning quickly when a problem asks for more.
           </p>
-          <div className="experience-card">
+          <div className="experience-card reveal">
             <p className="card-label">Recent experience</p>
             <h3>Accenture Philippines</h3>
             <p>SAP Academy Delegate · Technology</p>
@@ -218,7 +251,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="skills-section">
+      <section className="skills-section reveal">
         <p className="section-kicker"><span /> Toolbox</p>
         <div className="skill-grid">
           {skills.map(([title, content], index) => (
@@ -232,13 +265,13 @@ export default function Home() {
       </section>
 
       <section className="credentials-section" id="credentials">
-        <div>
+        <div className="reveal">
           <p className="section-kicker"><span /> Credentials</p>
           <h2>Learning with<br /><em>intention.</em></h2>
         </div>
         <div className="credential-grid">
           {credentials.map((credential, index) => (
-            <div className="credential-card" key={credential.name}>
+            <div className="credential-card reveal" key={credential.name} style={{ transitionDelay: `${index * 70}ms` }}>
               <div className="credential-number">0{index + 1}</div>
               <div className="credential-image-wrap">
                 <Image
